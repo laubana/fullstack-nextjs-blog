@@ -1,14 +1,37 @@
+import Loader from "../../../components/Loader/Loader";
 import PostContent from "../../../components/PostContent/PostContent";
+import { getFeaturedPosts, getPost } from "../../../services/posts";
 
-const post = {
-  date: "2024-02-10",
-  content: "# Content",
-  excerpt: "excerpt",
-  image: "/images/hero.jpg",
-  slug: "slug",
-  title: "title",
+export const getStaticProps = async (context) => {
+  const { params } = context;
+
+  const { slug } = params;
+
+  const post = getPost(slug);
+
+  return {
+    props: {
+      post,
+    },
+    revalidate: 600,
+  };
 };
 
-export default () => {
+export const getStaticPaths = async () => {
+  const posts = getFeaturedPosts();
+
+  return {
+    paths: posts.map((post) => ({ params: { slug: post.slug } })),
+    fallback: true,
+  };
+};
+
+export default (props) => {
+  const { post } = props;
+
+  if (!post) {
+    return <Loader />;
+  }
+
   return <PostContent post={post} />;
 };

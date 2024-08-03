@@ -5,7 +5,12 @@ export default () => {
   return (
     <section className={styles.hero}>
       <div className={styles.image}>
-        <Image src="/images/hero.jpg" alt="selfie" width={300} height={300} />
+        <Image
+          src="/images/static/hero.jpg"
+          alt="selfie"
+          width={300}
+          height={300}
+        />
       </div>
       <h1>Hi!</h1>
       <p>It is a simple blog.</p>

@@ -1,15 +1,14 @@
 import PostList from "../../components/PostList/PostList";
+import { getAllPosts } from "../../services/posts";
 
-const posts = [
-  {
-    date: "2024-02-10",
-    excerpt: "excerpt",
-    image: "/images/hero.jpg",
-    slug: "slug",
-    title: "title",
-  },
-];
+export const getStaticProps = async () => {
+  const posts = getAllPosts();
 
-export default () => {
+  return { props: { posts }, revalidate: 600 };
+};
+
+export default (props) => {
+  const { posts } = props;
+
   return <PostList posts={posts} />;
 };

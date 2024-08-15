@@ -1,10 +1,14 @@
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import js from "react-syntax-highlighter/dist/cjs/languages/prism/javascript";
+import atomDark from "react-syntax-highlighter/dist/cjs/styles/prism/atom-dark";
 
 import styles from "./PostContent.module.css";
+
 import PostHeader from "../PostHeader";
+
+SyntaxHighlighter.registerLanguage("js", js);
 
 export default ({ post }) => {
   return (

@@ -9,7 +9,7 @@ export default ({ post }) => {
       <Link href={`/posts/${post.slug}`}>
         <div className={styles.image}>
           <Image
-            src={post.image}
+            src={`/images/posts/${post.slug}/${post.image}`}
             alt={post.title}
             width={300}
             height={200}

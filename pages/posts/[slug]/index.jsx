@@ -1,5 +1,8 @@
+import Head from "next/head";
+
 import Loader from "../../../components/Loader/Loader";
 import PostContent from "../../../components/PostContent/PostContent";
+
 import { getFeaturedPosts, getPost } from "../../../services/posts";
 
 export const getStaticProps = async (context) => {
@@ -33,5 +36,13 @@ export default (props) => {
     return <Loader />;
   }
 
-  return <PostContent post={post} />;
+  return (
+    <>
+      <Head>
+        <title>{post.title}</title>
+        <meta name="description" content="Here is a post." />
+      </Head>
+      <PostContent post={post} />
+    </>
+  );
 };

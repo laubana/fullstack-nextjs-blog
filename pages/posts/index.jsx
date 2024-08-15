@@ -1,4 +1,7 @@
+import Head from "next/head";
+
 import PostList from "../../components/PostList/PostList";
+
 import { getAllPosts } from "../../services/posts";
 
 export const getStaticProps = async () => {
@@ -10,5 +13,13 @@ export const getStaticProps = async () => {
 export default (props) => {
   const { posts } = props;
 
-  return <PostList posts={posts} />;
+  return (
+    <>
+      <Head>
+        <title>All Posts</title>
+        <meta name="description" content="Here are all posts." />
+      </Head>
+      <PostList posts={posts} />
+    </>
+  );
 };

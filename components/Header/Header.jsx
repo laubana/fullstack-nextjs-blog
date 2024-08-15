@@ -15,11 +15,9 @@ export default () => {
       </Link>
       <nav>
         <ul>
-          {links.map((link, index) => (
-            <li>
-              <Link href={link.href} key={index}>
-                {link.label}
-              </Link>
+          {links.map((link) => (
+            <li key={link.href}>
+              <Link href={link.href}>{link.label}</Link>
             </li>
           ))}
         </ul>

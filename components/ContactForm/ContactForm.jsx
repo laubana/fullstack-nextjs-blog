@@ -58,13 +58,7 @@ export default () => {
         <div className={styles.controls}>
           <div className={styles.control}>
             <label htmlFor="email">Your Email</label>
-            <input
-              id="email"
-              name="email"
-              required
-              type="email"
-              defaultValue="e@t.c"
-            />
+            <input id="email" name="email" required type="email" />
           </div>
           <div className={styles.control}>
             <label htmlFor="name">Your Name</label>

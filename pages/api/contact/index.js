@@ -11,7 +11,7 @@ const handler = async (req, res) => {
         return;
       }
 
-      const client = await MongoClient.connect(process.env.MONGO_URI);
+      const client = await MongoClient.connect(process.env.DB_URI);
 
       const db = client.db();
 

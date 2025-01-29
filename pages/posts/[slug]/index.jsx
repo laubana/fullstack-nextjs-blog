@@ -2,7 +2,6 @@ import Head from "next/head";
 
 import Loader from "../../../components/Loader/Loader";
 import PostContent from "../../../components/PostContent/PostContent";
-
 import { getFeaturedPosts, getPost } from "../../../services/posts";
 
 export const getStaticProps = async (context) => {

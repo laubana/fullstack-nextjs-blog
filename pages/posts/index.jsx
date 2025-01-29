@@ -1,7 +1,6 @@
 import Head from "next/head";
 
 import PostList from "../../components/PostList/PostList";
-
 import { getAllPosts } from "../../services/posts";
 
 export const getStaticProps = async () => {

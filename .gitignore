@@ -1,9 +1,8 @@
 .DS_Store
-/.env
+/.env*
 /package-lock.json
 /yarn.lock
-/*.db
-/db.json
+!/.env.template
 
-/node_modules
 /.next
+/node_modules

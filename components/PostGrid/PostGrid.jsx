@@ -1,5 +1,6 @@
 import styles from "./PostGrid.module.css";
-import PostItem from "../PostItem";
+
+import PostItem from "@components/PostItem";
 
 export default ({ posts }) => {
   return (

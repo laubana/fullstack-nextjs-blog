@@ -1,6 +1,8 @@
 import Link from "next/link";
+
 import styles from "./Header.module.css";
-import Logo from "../Logo";
+
+import Logo from "@components/Logo";
 
 const links = [
   { href: "/posts", label: "Posts" },

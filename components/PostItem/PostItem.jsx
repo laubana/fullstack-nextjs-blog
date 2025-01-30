@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+
 import styles from "./PostItem.module.css";
-import { formatDate } from "../../helpers/date";
+
+import { formatDate } from "@helpers/date";
 
 export default ({ post }) => {
   return (

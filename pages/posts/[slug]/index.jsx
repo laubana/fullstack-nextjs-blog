@@ -1,8 +1,8 @@
 import Head from "next/head";
 
-import Loader from "../../../components/Loader/Loader";
-import PostContent from "../../../components/PostContent/PostContent";
-import { getFeaturedPosts, getPost } from "../../../services/posts";
+import Loader from "@components/Loader";
+import PostContent from "@components/PostContent";
+import { getFeaturedPosts, getPost } from "@services/posts";
 
 export const getStaticProps = async (context) => {
   const { params } = context;

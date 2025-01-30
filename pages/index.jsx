@@ -1,9 +1,8 @@
 import Head from "next/head";
 
-import FeaturedPosts from "../components/FeaturedPosts/FeaturedPosts";
-import Hero from "../components/Hero/Hero";
-
-import { getFeaturedPosts } from "../services/posts";
+import FeaturedPosts from "@components/FeaturedPosts";
+import Hero from "@components/Hero";
+import { getFeaturedPosts } from "@services/posts";
 
 export const getStaticProps = async () => {
   const posts = getFeaturedPosts();

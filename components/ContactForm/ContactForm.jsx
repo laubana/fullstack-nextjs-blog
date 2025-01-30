@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import styles from "./ContactForm.module.css";
 
-import Notification from "../Notification/Notification";
+import Notification from "@components/Notification";
 
 export default () => {
   const [status, setStatus] = useState(null);

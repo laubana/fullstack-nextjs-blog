@@ -6,7 +6,7 @@ import atomDark from "react-syntax-highlighter/dist/cjs/styles/prism/atom-dark";
 
 import styles from "./PostContent.module.css";
 
-import PostHeader from "../PostHeader";
+import PostHeader from "@components/PostHeader";
 
 SyntaxHighlighter.registerLanguage("js", js);
 

@@ -1,7 +1,7 @@
 import Head from "next/head";
 
-import PostList from "../../components/PostList/PostList";
-import { getAllPosts } from "../../services/posts";
+import PostList from "@components/PostList";
+import { getAllPosts } from "@services/posts";
 
 export const getStaticProps = async () => {
   const posts = getAllPosts();

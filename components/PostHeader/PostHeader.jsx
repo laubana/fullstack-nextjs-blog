@@ -1,8 +1,8 @@
 import Image from "next/image";
+
 import styles from "./PostHeader.module.css";
 
 export default ({ post }) => {
-  console.log(`/images/posts/${post.slug}/${post.image}`);
   return (
     <div className={styles.header}>
       <h1>{post.title}</h1>

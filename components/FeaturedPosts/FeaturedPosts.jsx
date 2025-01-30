@@ -1,5 +1,6 @@
 import styles from "./FeaturedPosts.module.css";
-import PostGrid from "../PostGrid/PostGrid";
+
+import PostGrid from "@components/PostGrid";
 
 export default ({ posts }) => {
   return (

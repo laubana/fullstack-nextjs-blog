@@ -21,3 +21,9 @@ In the project directory, you can run:
 ### \_app, \_document
 
 ### createPortal
+
+### pages/[]
+
+### getStaticProps
+
+### getStaticPaths

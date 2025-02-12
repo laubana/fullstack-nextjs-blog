@@ -6,7 +6,7 @@ import { getAllPosts } from "@services/posts";
 export const getStaticProps = async () => {
   const posts = getAllPosts();
 
-  return { props: { posts }, revalidate: 600 };
+  return { props: { posts }, revalidate: 3600 };
 };
 
 export default (props) => {

@@ -2,7 +2,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
 
-const directoryPath = path.join(process.cwd(), "db", "posts");
+const directoryPath = path.join(process.cwd(), "data", "posts");
 
 const parseFile = (file) => {
   const filePath = path.join(directoryPath, file);

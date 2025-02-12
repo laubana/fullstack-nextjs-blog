@@ -1,4 +1,4 @@
-import { MongoClient } from "mongodb";
+import dbConfig from "@configs/dbConfig";
 
 const handler = async (req, res) => {
   try {
@@ -11,8 +11,7 @@ const handler = async (req, res) => {
         return;
       }
 
-      const client = await MongoClient.connect(process.env.DB_URI);
-
+      const client = await dbConfig.connect(process.env.DB_URI);
       const db = client.db();
 
       const newMessage = await db.collection("messages").insertOne({

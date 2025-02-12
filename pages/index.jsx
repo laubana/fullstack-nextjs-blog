@@ -7,7 +7,7 @@ import { getFeaturedPosts } from "@services/posts";
 export const getStaticProps = async () => {
   const posts = getFeaturedPosts();
 
-  return { props: { posts }, revalidate: 600 };
+  return { props: { posts }, revalidate: 3600 };
 };
 
 export default (props) => {

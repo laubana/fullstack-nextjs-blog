@@ -7,23 +7,25 @@ import { getFeaturedPosts, getPost } from "@services/posts";
 export const getStaticProps = async (context) => {
   const { params } = context;
 
-  const { slug } = params;
+  const { postId } = params;
 
-  const post = getPost(slug);
+  const post = await getPost(postId);
 
   return {
     props: {
-      post,
+      post: JSON.parse(JSON.stringify(post)),
     },
     revalidate: 3600,
   };
 };
 
 export const getStaticPaths = async () => {
-  const posts = getFeaturedPosts();
+  const posts = await getFeaturedPosts();
 
   return {
-    paths: posts.map((post) => ({ params: { slug: post.slug } })),
+    paths: JSON.parse(JSON.stringify(posts)).map((post) => ({
+      params: { postId: post._id },
+    })),
     fallback: true,
   };
 };

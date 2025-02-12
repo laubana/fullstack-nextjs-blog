@@ -6,7 +6,7 @@ export default ({ posts }) => {
   return (
     <ul className={styles.grid}>
       {posts.map((post) => (
-        <PostItem post={post} key={post.slug} />
+        <PostItem post={post} key={post._id} />
       ))}
     </ul>
   );

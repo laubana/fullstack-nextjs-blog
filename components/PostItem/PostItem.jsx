@@ -8,10 +8,10 @@ import { formatDate } from "@helpers/date";
 export default ({ post }) => {
   return (
     <li className={styles.post}>
-      <Link href={`/posts/${post.slug}`}>
+      <Link href={`/posts/${post._id}`}>
         <div className={styles.image}>
           <Image
-            src={`/images/posts/${post.slug}/${post.image}`}
+            src={post.image}
             alt={post.title}
             width={300}
             height={200}

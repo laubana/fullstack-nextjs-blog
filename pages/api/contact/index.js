@@ -1,4 +1,5 @@
 import dbConfig from "@configs/dbConfig";
+import Message from "@models/Message";
 
 const handler = async (req, res) => {
   try {
@@ -11,10 +12,9 @@ const handler = async (req, res) => {
         return;
       }
 
-      const client = await dbConfig.connect(process.env.DB_URI);
-      const db = client.db();
+      await dbConfig.connect(process.env.DB_URI);
 
-      const newMessage = await db.collection("messages").insertOne({
+      const newMessage = await Message.insertOne({
         email,
         message,
         name,
@@ -23,6 +23,8 @@ const handler = async (req, res) => {
       res
         .status(201)
         .json({ message: "Message created successfully.", data: newMessage });
+    } else {
+      res.status(404).json({ message: "Not Found" });
     }
   } catch (error) {
     console.error(error);

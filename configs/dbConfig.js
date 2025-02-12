@@ -1,10 +1,11 @@
-import { MongoClient } from "mongodb";
+import mongoose from "mongoose";
+
+import "@models/Message";
+import "@models/Post";
 
 const connect = async () => {
   try {
-    const client = await MongoClient.connect(process.env.DB_URI);
-
-    return client;
+    await mongoose.connect(process.env.DB_URI);
   } catch (error) {
     console.error(error);
 

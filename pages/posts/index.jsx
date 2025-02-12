@@ -4,9 +4,12 @@ import PostList from "@components/PostList";
 import { getAllPosts } from "@services/posts";
 
 export const getStaticProps = async () => {
-  const posts = getAllPosts();
+  const posts = await getAllPosts();
 
-  return { props: { posts }, revalidate: 3600 };
+  return {
+    props: { posts: JSON.parse(JSON.stringify(posts)) },
+    revalidate: 3600,
+  };
 };
 
 export default (props) => {

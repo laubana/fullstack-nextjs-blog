@@ -5,9 +5,12 @@ import Hero from "@components/Hero";
 import { getFeaturedPosts } from "@services/posts";
 
 export const getStaticProps = async () => {
-  const posts = getFeaturedPosts();
+  const posts = await getFeaturedPosts();
 
-  return { props: { posts }, revalidate: 3600 };
+  return {
+    props: { posts: JSON.parse(JSON.stringify(posts)) },
+    revalidate: 3600,
+  };
 };
 
 export default (props) => {

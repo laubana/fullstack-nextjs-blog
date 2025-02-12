@@ -38,7 +38,7 @@ export default ({ post }) => {
                   <Image
                     alt={img.properties.alt}
                     height={300}
-                    src={`/images/posts/${post.slug}/${img.properties.src}`}
+                    src={img.properties.src}
                     width={600}
                   />
                 </div>

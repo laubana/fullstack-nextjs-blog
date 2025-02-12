@@ -1,41 +1,50 @@
-import fs from "fs";
 import matter from "gray-matter";
-import path from "path";
 
-const directoryPath = path.join(process.cwd(), "data", "posts");
+import dbConfig from "@configs/dbConfig";
+import Post from "@models/Post";
 
-const parseFile = (file) => {
-  const filePath = path.join(directoryPath, file);
-  const raw = fs.readFileSync(filePath, "utf-8");
-  const { data, content } = matter(raw);
+const parsePost = (post) => {
+  const { data, content } = matter(post.content);
 
-  const slug = file.replace(/\.md$/, "");
-
-  return {
-    content,
-    ...data,
-    slug,
-  };
+  return (
+    post && {
+      ...data,
+      ...post,
+      content,
+    }
+  );
 };
 
-export const getAllPosts = () => {
-  const files = fs.readdirSync(directoryPath);
+export const getAllPosts = async () => {
+  await dbConfig.connect();
 
-  const posts = files.map((file) => parseFile(file));
+  const existingPosts = await Post.find().lean();
 
-  return posts.sort((prev, next) => (prev.date > next.date ? -1 : 1));
+  const parsedExistingPosts = existingPosts.map((existingPost) =>
+    parsePost(existingPost)
+  );
+
+  return parsedExistingPosts;
 };
 
-export const getFeaturedPosts = () => {
-  const posts = getAllPosts();
+export const getFeaturedPosts = async () => {
+  await dbConfig.connect();
 
-  return posts.filter((post) => post.isFeatured);
+  const existingPosts = await Post.find({ isFeatured: true }).lean();
+
+  const parsedExistingPosts = existingPosts.map((existingPost) =>
+    parsePost(existingPost)
+  );
+
+  return parsedExistingPosts;
 };
 
-export const getPost = (slug) => {
-  const files = fs.readdirSync(directoryPath);
+export const getPost = async (postId) => {
+  await dbConfig.connect();
 
-  const posts = files.map((file) => parseFile(file));
+  const existingPost = await Post.findById(postId).lean();
 
-  return posts.find((post) => post.slug === slug);
+  const parsedExistingPost = parsePost(existingPost);
+
+  return parsedExistingPost;
 };
